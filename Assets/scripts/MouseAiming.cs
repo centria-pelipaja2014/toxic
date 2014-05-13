@@ -8,9 +8,19 @@ public class MouseAiming : MonoBehaviour {
 	public GameObject HeadObject; //Used for head angle
 	public GameObject BodyObject; //Used for the body rotation
 
-	//public float CameraDistance = 3F;
-	//public float CameraHeight = 1F;
+	private Transform HeadObjectLocationXYZ; //XYZ location of HeadObject
 
+	private float HeadObjectLocationX;	//X location of HeadObject
+	private float HeadObjectLocationY;	//Y location of HeadObject
+	private float HeadObjectLocationZ;	//Z location of HeadObject
+
+	public float CameraDistanceX = -0.3F; //Adds this to HeadObjectX
+	public float CameraDistanceY = 1.2F; //Add this to HeadObjectY
+	public float CameraDistanceZ = -2F;	//Add this to HeadObjectZ
+
+	public float CameraAngleX = 25F; //The X angle of Camera
+	public float CameraAngleY = 0F; //The Y angle of Camera
+	public float CameraAngleZ = 0F; //The Z angle of Camera
 
 	//Sensitivety and other shit
 	public bool InvertedY = false; //Enables inverted Y axis on mouse. Do not remove.
@@ -18,115 +28,80 @@ public class MouseAiming : MonoBehaviour {
 	public float SensitivityX = 500F;
 	public float SensitivityY = 500F;
 	
-	public float MinimumX = -360F; //currently not used anywhere
-	public float MaximumX = 360F; //currently not used anywhere
+	//public float MinimumX = -360F; //currently not used anywhere
+	//public float MaximumX = 360F; //currently not used anywhere
 	
-	public float MinimumY = -35F; //min Y angle
-	public float MaximumY = 50F; //max Y angle
+	public float HeadObjectMinimumY = -35F; //min Y for HeadObject angle
+	public float HeadObjectMaximumY = 50F; //max Y for HeadObject angle
+
+	public float CameraMinimumY = -20F;
+	public float CameraMaximumY = 30F;
+	
 	
 	float RotationY = 0F;
 	float RotationX = 0F;
 
-	/*
-	// The target we are following
-	private  Transform target;
-	// The distance in the x-z plane to the target
-	public float distance = 3.0F;
-	// the height we want the camera to be above the target
-	public float height = 2.0F;
-	// How much we 
-	public float heightDamping = 2.0F;
-	public float rotationDamping = 0.6F;
-	*/
+	float CameraRotationX = 0F;
+	float CameraRotationY = 0F;
+	float CameraRotationZ = 0F;
+	
 	void Start ()
 	{
+		Camera.main.transform.position = new Vector3(0, 0, 0);
+
+		HeadObjectLocationXYZ = HeadObject.transform;
+
+		HeadObjectLocationX = HeadObjectLocationXYZ.transform.position.x;
+		HeadObjectLocationY = HeadObjectLocationXYZ.transform.position.y;
+		HeadObjectLocationZ = HeadObjectLocationXYZ.transform.position.z;
+
+		Camera.main.transform.position = new Vector3(HeadObjectLocationX+CameraDistanceX, HeadObjectLocationY+CameraDistanceY,HeadObjectLocationZ+CameraDistanceZ);
+
+		Camera.main.transform.rotation = Quaternion.Euler(CameraAngleX, CameraAngleY, CameraAngleZ);
 
 		Camera.main.transform.parent = HeadObject.transform;
 
 		//Screen.lockCursor= true;
-		// Make the rigid body not change rotation
-		//if (rigidbody)
-			//rigidbody.freezeRotation = true;
 
 	}
 
 	void Update()
 	{
 		RotationX += Input.GetAxis ( "Mouse X" ) *SensitivityX*Time.deltaTime;
+		RotationY += Input.GetAxis("Mouse Y")*SensitivityY*Time.deltaTime;
 
-		if (InvertedY == false) 
+
+		if (InvertedY == false) //Normal mouse
 		{
 			
-			RotationY += Input.GetAxis("Mouse Y")*SensitivityY*Time.deltaTime;
-			
-			RotationY = Mathf.Clamp(RotationY, MinimumY, MaximumY);
+			RotationY = Mathf.Clamp(RotationY, HeadObjectMinimumY, HeadObjectMaximumY);
 			
 			BodyObject.transform.rotation = Quaternion.Euler(0,RotationX,0); //rotates the body
-			HeadObject.transform.rotation = Quaternion.Euler(0,RotationX-90,RotationY-90); //rotates the head on Y axis with a clamp and also with X axis so it turns with the body
-			
+			HeadObject.transform.rotation = Quaternion.Euler(0,RotationX-90,RotationY-90); //rotates the head on Y axis with a clamp. Also turns head on X axis so it turns with the body
 			
 		} 
 		
-		else 
+		else //Inverted mouse
 		{
 			
-			RotationY += Input.GetAxis("Mouse Y")*SensitivityY*Time.deltaTime;
-			
-			RotationY = Mathf.Clamp(RotationY, -MaximumY, -MinimumY);
+			RotationY = Mathf.Clamp(RotationY, -HeadObjectMaximumY, -HeadObjectMinimumY);
 			
 			BodyObject.transform.rotation = Quaternion.Euler(0,RotationX,0); //rotates the body
-			HeadObject.transform.rotation = Quaternion.Euler(0,RotationX-90,-RotationY-90); //rotates the head on Y axis with a clamp and also with X axis so it turns with the body
+			HeadObject.transform.rotation = Quaternion.Euler(0,RotationX-90,-RotationY-90); //rotates the head on Y axis with a clamp. Also turns head on X axis so it turns with the body
 		}
-
 	}
-	/*
-	void LateUpdate ()
-	{
 
-		Vector3 playerPOS = HeadObject.transform.position;
-		Camera.main.transform.position = new Vector3(playerPOS.x, playerPOS.y, playerPOS.z - CameraDistance);
+	/*void  LateUpdate ()
+	{
+		CameraRotationX = HeadObject.transform.rotation.x;
+		CameraRotationY = HeadObject.transform.rotation.y;
+		CameraRotationZ = HeadObject.transform.rotation.z;
+
+
+		CameraRotationY = Mathf.Clamp(CameraRotationY, CameraMinimumY, CameraMaximumY);
+
+		Camera.main.transform.rotation = Quaternion.Euler(CameraRotationX, CameraRotationY, CameraRotationZ);
 
 	}
 	*/
-
-	void  LateUpdate ()
-	{
-		/*
-		target = HeadObject.transform;
-		// Early out if we don't have a target
-		if (!target) 
-		{
-			return;
-		}
-		else
-		{
-			// Calculate the current rotation angles
-			float wantedRotationAngle = target.eulerAngles.y;
-			float wantedHeight = target.position.y + height;
-			
-			float currentRotationAngle = transform.eulerAngles.y;
-			float currentHeight = transform.position.y;
-			
-			// Damp the rotation around the y-axis
-			currentRotationAngle = Mathf.LerpAngle (currentRotationAngle, wantedRotationAngle, rotationDamping * Time.deltaTime);
-			
-			// Damp the height
-			currentHeight = Mathf.Lerp (currentHeight, wantedHeight, heightDamping * Time.deltaTime);
-			
-			// Convert the angle into a rotation
-			Quaternion currentRotation = Quaternion.Euler (0, currentRotationAngle, 0);
-			
-			// Set the position of the camera on the x-z plane to:
-			// distance meters behind the target
-			Camera.main.transform.position = target.position;
-			Camera.main.transform.position -= currentRotation * Vector3.forward * distance;
-			
-			// Set the height of the camera
-			//Camera.main.transform.position.y = currentHeight;
-			
-			// Always look at the target
-			Camera.main.transform.LookAt (target);
-
-		}*/
-	}
 }
