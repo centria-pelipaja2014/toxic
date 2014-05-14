@@ -95,26 +95,19 @@ public class Config : MonoBehaviour {
 
 	}
 
-	static string GetKeyBind( string action ) {
+	static public string GetKeyBind( string action ) {
 
-		if( keyBinds.ContainsKey ( action ) ) return keyBinds[ action ].ToString ();
+		if( !keyBinds.ContainsKey ( action ) ) return "";
 
-		return "";
+		return keyBinds[ action ].ToString ();
 
 	}
 
-	static float GetGamma() { return Convert.ToSingle ( options[ "gamma" ] ); }
-	static float GetBrightness() { return Convert.ToSingle ( options[ "brightness" ] ); }
-	static bool GetFullscreen() { return Convert.ToBoolean ( options[ "fullscreen" ] ); }
-	static Vector2 GetResolution() { return new Vector2( Convert.ToSingle ( options[ "resolutionX" ] ), Convert.ToSingle( options[ "resolutionY" ] ) ); }
-	static int GetQuality() {
+	static public T GetOption< T >( string option ) {
 
-		int quality = Convert.ToInt32 ( options[ "quality" ] );
+		if( !options.ContainsKey ( option ) ) return default( T );
 
-		if( quality < 0 ) return 0;
-		if( quality > QualitySettings.names.Length - 1 ) return QualitySettings.names.Length - 1;
-
-		return quality;
+		return (T)Convert.ChangeType ( options[ option ], typeof( T ) );
 
 	}
 
