@@ -15,6 +15,8 @@ public class CharacterMovement : MonoBehaviour {
 
 	public float gravity = 20.0F;
 
+
+
 	private Vector3 moveDirection = Vector3.zero;
 
 	void FixedUpdate () {
@@ -39,7 +41,6 @@ public class CharacterMovement : MonoBehaviour {
 			{
 				speed = normalSpeed;
 			}
-
 		}
 
 		moveDirection.y -= gravity * Time.deltaTime;
