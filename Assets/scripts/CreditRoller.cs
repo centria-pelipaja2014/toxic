@@ -4,8 +4,6 @@ using System.IO;
 
 public class CreditRoller : MonoBehaviour {
 
-	private ArrayList credit_text = new ArrayList();
-
 	// Use this for initialization
 	void Start () {
 
@@ -81,7 +79,7 @@ public class CreditRoller : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		Camera.main.transform.Translate ( -Vector3.up * 0.05f );
+		Camera.main.transform.Translate ( -Vector3.up * 3f * Time.deltaTime );
 
 	}
 

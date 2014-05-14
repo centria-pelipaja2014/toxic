@@ -88,7 +88,9 @@ public class MouseAiming : MonoBehaviour {
 			
 			BodyObject.transform.rotation = Quaternion.Euler(0,RotationX,0); //rotates the body
 			HeadObject.transform.rotation = Quaternion.Euler(0,RotationX-90,-RotationY-90); //rotates the head on Y axis with a clamp. Also turns head on X axis so it turns with the body
+		
 		}
+
 	}
 
 	/*void  LateUpdate ()
