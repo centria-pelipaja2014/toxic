@@ -1,8 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\Config.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\MouseAiming.cs">
     <Files>
-      <File FileName="Assets\scripts\Config.cs" Line="95" Column="3" />
+      <File FileName="Assets\scripts\CharacterMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\MouseAiming.cs" Line="36" Column="2" />
+      <File FileName="Assets\scripts\Config.cs" Line="36" Column="32" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
