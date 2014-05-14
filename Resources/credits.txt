@@ -1,0 +1,54 @@
+!Toxic
+
+!Lead Designer
+Niko Kaukonen
+
+!Designers
+Bishwo Adhikari
+Juha Kleemola
+Narayan Pokhrel
+Roope Miettunen
+Toni Harju
+
+!Lead Programmer
+Toni Harju
+
+!Programmers
+Bishwo Adhikari
+Juha Kleemola
+Narayan Pokhrel
+Niko Kaukonen
+
+!Lead Artist
+Unknown
+
+!Artists
+Unknown
+
+!Concept Artists
+Roope Miettunen
+
+!Lead 3D Artist
+Unknown
+
+!3D Artists
+Unknown
+
+!Lead Animator
+Unknown
+
+!Animators
+Unknown
+
+!Lead Sound Designer
+Toni Harju
+
+!Sound Designers
+Unknown
+
+!Marketing & Community Manager
+Juha Kleemola
+
+!Special Thanks
+Ville Autio
+Centria Ammattikorkeakoulu
