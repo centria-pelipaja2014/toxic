@@ -1,2 +1,7 @@
 /Temp
 /Library/metadata
+/Library
+/*.sln
+/*.csproj
+/*.unityproj
+/*.userprefs
