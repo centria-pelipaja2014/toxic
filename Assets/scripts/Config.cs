@@ -15,20 +15,57 @@ public class Config : MonoBehaviour {
 	static private Hashtable options = new Hashtable();
 	static private Hashtable keyBinds = new Hashtable();
 
+	void OnApplicationQuit() {
+
+		try {
+
+			FileStream temp = File.Open ( "Resources/config.txt", FileMode.Truncate );
+			temp.Close ();
+
+			StreamWriter writer = new StreamWriter ( "Resources/config.txt" );
+
+			using (writer) {
+
+				foreach( string key in options.Keys ) {
+
+					writer.WriteLine ( "set " + key + " " + options[ key ] );
+
+				}
+
+				foreach( string key in keyBinds.Keys ) {
+
+					string keyBind = keyBinds[ key ].ToString ();
+
+					writer.WriteLine ( "bind " + key + " " + keyBind.Replace ( " ", "_" ) );
+					
+				}
+
+				writer.Close ();
+
+			}
+
+		} catch( IOException e ) {
+
+			Debug.Log ( e.Message );
+
+		}
+
+	}
+
 	// Use this for initialization
 	void Start () {
 
-		options[ "resolutionX" ] = 1024;
-		options[ "resolutionY" ] = 768;
-		options[ "brightness" ] = 1.0f;
-		options[ "gamma" ] = 1.0f;
-		options[ "quality" ] = 3;
-		options[ "fullscreen" ] = true;
+		options[ "resolutionX" ] = "1024";
+		options[ "resolutionY" ] = "768";
+		options[ "brightness" ] = "1";
+		options[ "gamma" ] = "1";
+		options[ "quality" ] = "3";
+		options[ "fullscreen" ] = "true";
 
-		keyBinds[ "up" ] = "w";
-		keyBinds[ "down" ] = "s";
-		keyBinds[ "left" ] = "a";
-		keyBinds[ "right" ] = "d";
+		keyBinds[ "forward" ] = "w";
+		keyBinds[ "backward" ] = "s";
+		keyBinds[ "strafe_left" ] = "a";
+		keyBinds[ "strafe_right" ] = "d";
 
 		keyBinds[ "select1" ] = "f1";
 		keyBinds[ "select2" ] = "f2";

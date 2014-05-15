@@ -14,6 +14,12 @@ public class MouseAiming : MonoBehaviour {
 	private float HeadObjectLocationY;	//Y location of HeadObject
 	private float HeadObjectLocationZ;	//Z location of HeadObject
 
+	private Quaternion HeadObjectAngleXYZ; //XYZ angle of HeadObject
+	
+	private float HeadObjectAngleX;	//X angle of HeadObject
+	private float HeadObjectAngleY;	//Y angle of HeadObject
+	private float HeadObjectAngleZ;	//Z angle of HeadObject
+
 	public float CameraDistanceX = -0.3F; //Adds this to HeadObjectX
 	public float CameraDistanceY = 1.2F; //Add this to HeadObjectY
 	public float CameraDistanceZ = -2F;	//Add this to HeadObjectZ
@@ -38,8 +44,8 @@ public class MouseAiming : MonoBehaviour {
 	public float CameraMaximumY = 30F;
 	
 	
+	float RotationZ = 0F;
 	float RotationY = 0F;
-	float RotationX = 0F;
 	/* These are not used anywhere yet. They might be used later on when we implement a separate clamp for the camera.
 	float CameraRotationX = 0F;
 	float CameraRotationY = 0F;
@@ -47,6 +53,8 @@ public class MouseAiming : MonoBehaviour {
 	*/
 	void Start ()
 	{
+		RotationY = BodyObject.transform.eulerAngles.y;
+
 		Camera.main.transform.position = new Vector3(0, 0, 0); //Moves camera to 0,0,0
 
 		HeadObjectLocationXYZ = HeadObject.transform;
@@ -61,47 +69,38 @@ public class MouseAiming : MonoBehaviour {
 
 		Camera.main.transform.parent = HeadObject.transform;	//Parents the main camera to the head.
 
+		Camera.main.transform.RotateAround ( BodyObject.transform.position, new Vector3( 0, 1, 0 ), RotationY );
+
 		//Screen.lockCursor= true;
 
 	}
 
 	void Update()
 	{
-		RotationX += Input.GetAxis ( "Mouse X" ) *SensitivityX*Time.deltaTime;
-		RotationY += Input.GetAxis("Mouse Y")*SensitivityY*Time.deltaTime;
 
+		RotationY += BodyObject.transform.rotation.x + (Input.GetAxis ( "Mouse X" ) *SensitivityX*Time.deltaTime);
+		RotationZ += Input.GetAxis("Mouse Y")*SensitivityY*Time.deltaTime;
 
 		if (InvertedY == false) //Normal mouse | If you edit this, don't forget to copy and paste the changes to inverted mouse.
 		{
 			
-			RotationY = Mathf.Clamp(RotationY, HeadObjectMinimumY, HeadObjectMaximumY); //Clamps the angle. ie. head will not rotate 360 along its Y-axis
+			RotationZ = Mathf.Clamp(RotationZ, HeadObjectMinimumY, HeadObjectMaximumY); //Clamps the angle. ie. head will not rotate 360 along its Y-axis
 			
-			BodyObject.transform.rotation = Quaternion.Euler(0,RotationX,0); //rotates the body
-			HeadObject.transform.rotation = Quaternion.Euler(0,RotationX-90,RotationY-90); //rotates the heads Y axis. Also turns head on X axis so it turns with the body. | The axis on the unity default character are a bit wonky at the moment.
+			BodyObject.transform.rotation = Quaternion.Euler(0,RotationY,0); //rotates the body
+			HeadObject.transform.rotation = Quaternion.Euler(0,RotationY-90,RotationZ-90); //rotates the heads Y axis. Also turns head on X axis so it turns with the body. | The axis on the unity default character are a bit wonky at the moment.
 			
 		} 
 		
 		else //Inverted mouse | Some of the variables work bit differently here than on the normal mouse and you may need to use negative values for some. For example the Mathf.Clamp.
 		{
 			
-			RotationY = Mathf.Clamp(RotationY, -HeadObjectMaximumY, -HeadObjectMinimumY); //Clamps the angle. ie. head will not rotate 360 along its Y-axis
+			RotationZ = Mathf.Clamp(RotationZ, -HeadObjectMaximumY, -HeadObjectMinimumY); //Clamps the angle. ie. head will not rotate 360 along its Y-axis
 			
-			BodyObject.transform.rotation = Quaternion.Euler(0,RotationX,0); //rotates the body
-			HeadObject.transform.rotation = Quaternion.Euler(0,RotationX-90,-RotationY-90); //rotates the head on Y axis with a clamp. Also turns head on X axis so it turns with the body
+			BodyObject.transform.rotation = Quaternion.Euler(0,RotationY,0); //rotates the body
+			HeadObject.transform.rotation = Quaternion.Euler(0,RotationY-90,-RotationZ-90); //rotates the head on Y axis with a clamp. Also turns head on X axis so it turns with the body
+		
 		}
-	}
-
-	/*void  LateUpdate ()
-	{
-		CameraRotationX = HeadObject.transform.rotation.x;
-		CameraRotationY = HeadObject.transform.rotation.y;
-		CameraRotationZ = HeadObject.transform.rotation.z;
-
-
-		CameraRotationY = Mathf.Clamp(CameraRotationY, CameraMinimumY, CameraMaximumY);
-
-		Camera.main.transform.rotation = Quaternion.Euler(CameraRotationX, CameraRotationY, CameraRotationZ);
 
 	}
-	*/
+
 }
