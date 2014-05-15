@@ -1,25 +1,21 @@
+set quality 3
+set brightness 1
+set fullscreen true
 set resolutionX 1024
 set resolutionY 768
-set quality 3
 set gamma 1
-set brightness 1
-set fullscreen false
-
-bind up w
-bind down s
-bind left a
-bind right d
-
+bind crouch left_control
 bind select1 f1
 bind select2 f2
 bind select3 f3
-bind select4 f4
+bind strafe_right d
 bind select5 f5
 bind select6 f6
-
+bind select4 f4
 bind jump space
-bind sneak left_shift
-bind crouch left_control
-
-bind attack mouse_0
+bind backward s
+bind forward w
 bind special mouse_1
+bind sneak left_shift
+bind attack mouse_0
+bind strafe_left a
