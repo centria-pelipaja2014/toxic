@@ -26,7 +26,7 @@ public class CreditRoller : MonoBehaviour {
 			mesh.fontSize = 50;
 			mesh.alignment = TextAlignment.Center;
 			mesh.anchor = TextAnchor.UpperCenter;
-			
+
 			renderer.material = mesh.font.material;
 
 			using( reader ) {

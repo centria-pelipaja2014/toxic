@@ -3,8 +3,38 @@ using System.Collections;
 
 public class InGameUI : MonoBehaviour {
 
-	public bool showSkillSelect = false;
-	public bool showSpecialSelect = false;
+	static private int playerCurrentHealth = 0;
+	static private int playerTotalHealth = 0;
+
+	static private int playerCurrentXP = 0;
+	static private int playerTotalXP = 0;
+
+	static private bool showSkillSelect = false;
+	static private bool showSpecialSelect = false;
+
+	static public void ToggleSkillsSelect() {
+		showSkillSelect = !showSkillSelect;
+	}
+
+	static public void ToggleSpecialSelect() {
+		showSpecialSelect = !showSpecialSelect;
+	}
+
+	static public void SetPlayerCurrentHealth( int health ) {
+		playerCurrentHealth = health;
+	}
+
+	static public void SetPlayerTotalHealth( int health ) {
+		playerTotalHealth = health;
+	}
+	
+	static public void SetPlayerCurrentXP( int xp ) {
+		playerCurrentXP = xp;
+	}
+
+	static public void SetPlayertotalXP( int xp ) {
+		playerTotalXP = xp;
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -12,7 +42,7 @@ public class InGameUI : MonoBehaviour {
 
 
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 	
@@ -45,8 +75,8 @@ public class InGameUI : MonoBehaviour {
 		GUI.Box ( new Rect( 115, Camera.main.pixelHeight - 65 - 35, 30, 30 ), "IMG" );
 
 		//Bars
-		GUI.Box ( new Rect( 10, Camera.main.pixelHeight - 65, 300, 25 ), "CurrentHealth/TotalHealth" );
-		GUI.Box ( new Rect( 10, Camera.main.pixelHeight - 35, 300, 25 ), "CurrentXP/TotalXP" );
+		GUI.Box ( new Rect( 10, Camera.main.pixelHeight - 65, 300, 25 ), playerCurrentHealth + "/" + playerTotalHealth );
+		GUI.Box ( new Rect( 10, Camera.main.pixelHeight - 35, 300, 25 ), playerCurrentXP + "/" + playerTotalXP );
 
 		//Magazine, replace with animated controllable image
 		GUI.Box ( new Rect( 330, Camera.main.pixelHeight - 65, 100, 55 ), "Magazine" );
