@@ -3,10 +3,12 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour {
 
-
+	public GameObject CreditsPosition;
+	public GameObject CreditManager;
 
 	// Use this for initialization
 	void Start () {
+		//changeCameraPos("JoinGamePos");
 		changeCameraPos ("MainMenuPos");
 	
 	}
@@ -24,7 +26,7 @@ public class MainMenu : MonoBehaviour {
 				
 				switch( hit.collider.name ) {
 					
-				case "JoinGameText":
+				case "JoingameText":
 					changeCameraPos("JoinGamePos");
 					break;
 
@@ -34,6 +36,7 @@ public class MainMenu : MonoBehaviour {
 
 				case "CreditsText":
 					changeCameraPos("CreditsPos");
+					CreditsPosition.SetActive(true);
 					break;
 
 				case "ExitText":
@@ -77,19 +80,28 @@ public class MainMenu : MonoBehaviour {
 				case "PlayText":
 					Application.LoadLevel("Scene2");
 					break;
-				
-				}
 
-				if(Camera.main.transform.position == GameObject.Find ("CreditsPos").transform.position) {
-
-					if (Input.anyKeyDown)
-						changeCameraPos ("MainMenuPos");
 
 				}
+
+			 }
+
+			
+		}
+
+
+
+		if (CreditManager.activeInHierarchy) {
+			
+			if (Input.GetKeyDown (KeyCode.Space)) {
+				CreditManager.SetActive (false);
+				changeCameraPos("MainMenuPos");
 
 			}
 			
 		}
+
+
 
 	}
 	void changeCameraPos(string s1)
@@ -99,5 +111,4 @@ public class MainMenu : MonoBehaviour {
 	}
 
 
-	
 }

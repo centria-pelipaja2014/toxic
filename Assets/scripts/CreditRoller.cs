@@ -19,14 +19,14 @@ public class CreditRoller : MonoBehaviour {
 			MeshRenderer renderer = temp.AddComponent< MeshRenderer >();
 			TextMesh mesh = temp.AddComponent< TextMesh >();
 			
-			temp.transform.position = new Vector3( 0, 0 );
-			temp.transform.localScale = new Vector3( 0.2f, 0.2f );
+			temp.transform.position = GameObject.Find("Manager").transform.position;
+			temp.transform.localScale = new Vector3( 0.2f, 0.2f);
 			
 			mesh.font = Resources.Load ( "Klavika-Medium" ) as Font;
 			mesh.fontSize = 50;
 			mesh.alignment = TextAlignment.Center;
 			mesh.anchor = TextAnchor.UpperCenter;
-
+			
 			renderer.material = mesh.font.material;
 
 			using( reader ) {
