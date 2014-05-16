@@ -1,9 +1,9 @@
 set quality 3
-set brightness 1
+set brightness 0.7978724
 set fullscreen true
 set resolutionX 1024
 set resolutionY 768
-set gamma 1
+set gamma 0.5212766
 bind crouch left_control
 bind select1 f1
 bind select2 f2

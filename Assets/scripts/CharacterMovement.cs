@@ -27,6 +27,7 @@ public class CharacterMovement : MonoBehaviour {
 	void Update() {
 
 		CharacterController controller = GetComponent<CharacterController>();
+		if( !InGameUI.IsEscapeMenuOpen () ) {
 		if (controller.isGrounded) {
 			moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 			moveDirection = transform.TransformDirection(moveDirection);
@@ -41,6 +42,7 @@ public class CharacterMovement : MonoBehaviour {
 			{
 				speed = normalSpeed;
 			}
+		}
 		}
 
 		moveDirection.y -= gravity * Time.deltaTime;
