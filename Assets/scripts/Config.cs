@@ -148,4 +148,18 @@ public class Config : MonoBehaviour {
 
 	}
 
+	static public Hashtable GetOptions() {
+
+		return options;
+
+	}
+
+	static public void SetOption< T >( string option, T value ) {
+
+		if( !options.ContainsKey ( option ) ) return;
+
+		options[ option ] = value.ToString ();
+
+	}
+
 }
