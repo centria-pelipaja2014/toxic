@@ -144,12 +144,12 @@ public class MouseAiming : MonoBehaviour {
 			
 			Debug.DrawLine (HeadObject.transform.position, newCameraLocationXYZ, Color.magenta);
 									
-		if (Physics.Raycast (HeadObject.transform.position, Camera.main.transform.position, out objectHit, 10)) 
+		if (Physics.Raycast (HeadObject.transform.position, Camera.main.transform.position, out objectHit, 50)) 
 
 			{
 			if (DebugMode == true)
 				{
-				Debug.Log("hits on something");
+				Debug.LogError("hits on something");
 				}
 			}
 
