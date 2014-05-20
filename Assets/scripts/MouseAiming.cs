@@ -3,6 +3,8 @@ using System.Collections;
 
 public class MouseAiming : MonoBehaviour {
 
+	public bool DebugMode = false;
+
 	//Objects and stuff
 
 	public GameObject HeadObject; //Used in head angle and camera parenting.
@@ -71,7 +73,7 @@ public class MouseAiming : MonoBehaviour {
 
 		Camera.main.transform.RotateAround ( BodyObject.transform.position, new Vector3( 0, 1, 0 ), RotationY );
 
-		//Screen.lockCursor= true;
+		Screen.lockCursor= true;
 
 	}
 
@@ -84,23 +86,75 @@ public class MouseAiming : MonoBehaviour {
 		if (InvertedY == false) //Normal mouse | If you edit this, don't forget to copy and paste the changes to inverted mouse.
 		{
 			
-			RotationZ = Mathf.Clamp(RotationZ, HeadObjectMinimumY, HeadObjectMaximumY); //Clamps the angle. ie. head will not rotate 360 along its Y-axis
+			RotationZ = Mathf.Clamp(RotationZ, -HeadObjectMaximumY, -HeadObjectMinimumY); //Clamps the angle. ie. head will not rotate 360 along its Y-axis
 			
 			BodyObject.transform.rotation = Quaternion.Euler(0,RotationY,0); //rotates the body
-			HeadObject.transform.rotation = Quaternion.Euler(0,RotationY-90,RotationZ-90); //rotates the heads Y axis. Also turns head on X axis so it turns with the body. | The axis on the unity default character are a bit wonky at the moment.
+			HeadObject.transform.rotation = Quaternion.Euler(-RotationZ,RotationY,0); //rotates the heads Y axis. Also turns head on X axis so it turns with the body. | The axis on the unity default character are a bit wonky at the moment.
 			
 		} 
 		
 		else //Inverted mouse | Some of the variables work bit differently here than on the normal mouse and you may need to use negative values for some. For example the Mathf.Clamp.
 		{
 			
-			RotationZ = Mathf.Clamp(RotationZ, -HeadObjectMaximumY, -HeadObjectMinimumY); //Clamps the angle. ie. head will not rotate 360 along its Y-axis
+			RotationZ = Mathf.Clamp(RotationZ, HeadObjectMinimumY, HeadObjectMaximumY); //Clamps the angle. ie. head will not rotate 360 along its Y-axis
 			
 			BodyObject.transform.rotation = Quaternion.Euler(0,RotationY,0); //rotates the body
-			HeadObject.transform.rotation = Quaternion.Euler(0,RotationY-90,-RotationZ-90); //rotates the head on Y axis with a clamp. Also turns head on X axis so it turns with the body
+			HeadObject.transform.rotation = Quaternion.Euler(RotationZ,RotationY,0); //rotates the head on Y axis with a clamp. Also turns head on X axis so it turns with the body
+
+
 		
 		}
 
+		if (Input.GetKeyDown (KeyCode.P))
+		{
+			if (DebugMode == false)
+			{
+				DebugMode = true;
+				Debug.Log ("Debug mode enabled.");
+				Screen.lockCursor= false;
+			}
+
+			else
+			{
+				DebugMode = false;
+				Debug.Log ("Debug mode disabled.");
+				Screen.lockCursor= true;
+			}
+		}
 	}
+
+	void LateUpdate()
+	{
+
+		Vector3 cameraLocationXYZ = Camera.main.transform.position;
+
+		float cameraLocationX = Camera.main.transform.position.x;
+		float cameraLocationY = Camera.main.transform.position.y;
+		float cameraLocationZ = Camera.main.transform.position.z;
+
+		Vector3 newCameraLocationXYZ = new Vector3 (cameraLocationX, cameraLocationY, cameraLocationZ);
+
+		if (DebugMode == true)
+		{
+
+		Debug.Log(newCameraLocationXYZ);
+
+		}
+			RaycastHit objectHit;
+			
+			Debug.DrawLine (HeadObject.transform.position, newCameraLocationXYZ, Color.magenta);
+									
+		if (Physics.Raycast (HeadObject.transform.position, Camera.main.transform.position, out objectHit, 10)) 
+
+			{
+			if (DebugMode == true)
+				{
+				Debug.Log("hits on something");
+				}
+			}
+
+	}
+
+
 
 }
