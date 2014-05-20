@@ -3,6 +3,8 @@ using System.Collections;
 
 public class MouseAiming : MonoBehaviour {
 
+	public bool DebugMode = false;
+
 	//Objects and stuff
 
 	public GameObject HeadObject; //Used in head angle and camera parenting.
@@ -71,7 +73,7 @@ public class MouseAiming : MonoBehaviour {
 
 		Camera.main.transform.RotateAround ( BodyObject.transform.position, new Vector3( 0, 1, 0 ), RotationY );
 
-		//Screen.lockCursor= true;
+		Screen.lockCursor= true;
 
 	}
 
@@ -102,18 +104,55 @@ public class MouseAiming : MonoBehaviour {
 
 		
 		}
+
+		if (Input.GetKeyDown (KeyCode.P))
+		{
+			if (DebugMode == false)
+			{
+				DebugMode = true;
+				Debug.Log ("Debug mode enabled.");
+				Screen.lockCursor= false;
+			}
+
+			else
+			{
+				DebugMode = false;
+				Debug.Log ("Debug mode disabled.");
+				Screen.lockCursor= true;
+			}
+		}
 	}
 
 	void LateUpdate()
 	{
 
-		Debug.DrawLine (HeadObject.transform.position, Camera.main.transform.position);
-		/*
-		if (Physics.Raycast(transform.position, cameraLocation, 50))
+		Vector3 cameraLocationXYZ = Camera.main.transform.position;
+
+		float cameraLocationX = Camera.main.transform.position.x;
+		float cameraLocationY = Camera.main.transform.position.y;
+		float cameraLocationZ = Camera.main.transform.position.z;
+
+		Vector3 newCameraLocationXYZ = new Vector3 (cameraLocationX, cameraLocationY, cameraLocationZ);
+
+		if (DebugMode == true)
 		{
-			print("There is something in front of the object!");
+
+		Debug.Log(newCameraLocationXYZ);
+
 		}
-		*/
+			RaycastHit objectHit;
+			
+			Debug.DrawLine (HeadObject.transform.position, newCameraLocationXYZ, Color.magenta);
+									
+		if (Physics.Raycast (HeadObject.transform.position, Camera.main.transform.position, out objectHit, 10)) 
+
+			{
+			if (DebugMode == true)
+				{
+				Debug.Log("hits on something");
+				}
+			}
+
 	}
 
 
