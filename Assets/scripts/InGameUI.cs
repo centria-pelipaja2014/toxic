@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class InGameUI : MonoBehaviour {
-
+	
 	private bool inOptionsMenu = false;
 	private bool inInputSettings = false;
 	private bool inVideoSettings = false;
@@ -10,6 +10,7 @@ public class InGameUI : MonoBehaviour {
 	private bool inKeyBindSettings = false;
 
 	static private bool inEscapeMenu = false;
+	static private bool inScoresMenu  = false;
 
 	static private int playerCurrentHealth = 0;
 	static private int playerTotalHealth = 0;
@@ -23,6 +24,10 @@ public class InGameUI : MonoBehaviour {
 	static public bool IsEscapeMenuOpen() {
 		return inEscapeMenu;
 	}
+
+	static public bool IsScoresMenuOpen(){
+		return inScoresMenu;
+		}
 
 	static public void ToggleSkillsSelect() {
 		showSkillSelect = !showSkillSelect;
@@ -57,22 +62,29 @@ public class InGameUI : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-	
-		if( Input.GetKeyDown ( "escape" ) ) {
 
-			if( inOptionsMenu ) {
+		if (Input.GetKeyDown ("escape")) {
+
+			if (inOptionsMenu) {
 
 				inOptionsMenu = false;
 				inEscapeMenu = true;
-
+			
 			} else {
 
 				inEscapeMenu = !inEscapeMenu;
-
 			}
 
 		}
 
+		if(Input.GetKeyDown(KeyCode.Tab)){
+
+			inScoresMenu = true;
+
+		} else if(Input.GetKeyUp(KeyCode.Tab)){
+
+			inScoresMenu = false ;
+		}
 	}
 
 	void OnGUI() {
@@ -107,10 +119,13 @@ public class InGameUI : MonoBehaviour {
 		GUI.Box ( new Rect( 330, Camera.main.pixelHeight - 65, 100, 55 ), "Magazine" );
 
 		if( inEscapeMenu )
-			GUI.Window (0, new Rect( Camera.main.pixelWidth / 2 - 50, Camera.main.pixelHeight / 2 - 50, 100, 100 ), EscapeMenu, "Menu" );
+			GUI.Window (0, new Rect( Camera.main.pixelWidth / 2 - 50, Camera.main.pixelHeight / 2 - 50, 100, 100 ), EscapeMenu, "MENU" );
 
 		if( inOptionsMenu )
 			GUI.Window (1, new Rect( Camera.main.pixelWidth / 2 - 200, Camera.main.pixelHeight / 2 - 200, 400, 400 ), OptionsMenu, "Options" );
+
+		if( inScoresMenu )
+			GUI.Window (2, new Rect( Camera.main.pixelWidth / 2 - 200, Camera.main.pixelHeight / 2 - 250, 400, 400 ), ScoreMenu, "SCORE BOARD" );
 
 	}
 
@@ -129,6 +144,13 @@ public class InGameUI : MonoBehaviour {
 		}
 
 	}
+
+	void ScoreMenu(int windowId){
+		GUI.Label (new Rect (50, 20, 200, 120), "Name");
+		GUI.Label (new Rect (180, 20, 200, 40), "Kills");
+		GUI.Label (new Rect (250, 20, 200, 40), "Damage");
+
+		}
 
 	void OptionsMenu( int windowId ) {
 
