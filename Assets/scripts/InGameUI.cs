@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class InGameUI : MonoBehaviour {
+
+	public static Texture2D lineTex;
 	
 	private bool inOptionsMenu = false;
 	private bool inInputSettings = false;
@@ -144,11 +146,13 @@ public class InGameUI : MonoBehaviour {
 		}
 
 	}
-
+	// Scoreboard screen
 	void ScoreMenu(int windowId){
 		GUI.Label (new Rect (50, 20, 200, 120), "Name");
 		GUI.Label (new Rect (180, 20, 200, 40), "Kills");
 		GUI.Label (new Rect (250, 20, 200, 40), "Damage");
+		// GUI.DrawTexture(new Rect(50, 20, 1, 1), lineTex);
+
 
 		}
 
