@@ -5,6 +5,8 @@ public class PCTest : MonoBehaviour {
 
 	private Vector3 CrosshairPos;
 
+	public Material CrosshairMaterial;
+
 	public GameObject Head;
 	public GameObject GunMuzzle;
 
@@ -17,18 +19,16 @@ public class PCTest : MonoBehaviour {
 	void Update () {
 	
 		RaycastHit hit;
-
-		if( Physics.Raycast ( GunMuzzle.transform.position, Head.transform.TransformDirection ( Vector3.forward ), out hit ) ) {
+		
+		if( Physics.Raycast ( GunMuzzle.transform.position, Head.transform.forward, out hit, 100 ) ) {
 
 			CrosshairPos = Camera.main.WorldToScreenPoint ( hit.point );
 
-			Debug.DrawRay ( GunMuzzle.transform.position, Head.transform.TransformDirection ( Vector3.forward ) * hit.distance );
+			//Debug.DrawRay ( GunMuzzle.transform.position, Head.transform.forward * hit.distance );
 
 		} else {
 
-			CrosshairPos = Camera.main.WorldToScreenPoint ( Head.transform.TransformDirection ( Vector3.forward ) * 10000 );
-
-			Debug.DrawRay ( GunMuzzle.transform.position, Head.transform.TransformDirection ( Vector3.forward ) * 10000 );
+			CrosshairPos = Camera.main.WorldToScreenPoint ( GunMuzzle.transform.position + Head.transform.forward * 10 );
 
 		}
 
@@ -36,7 +36,7 @@ public class PCTest : MonoBehaviour {
 
 	void OnGUI() {
 
-		GUI.Box ( new Rect( CrosshairPos.x, Screen.height - CrosshairPos.y, 20, 20 ), "" );
+		GUI.DrawTexture ( new Rect( CrosshairPos.x - 10, Screen.height - CrosshairPos.y - 10, 20, 20 ), CrosshairMaterial.mainTexture );
 
 	}
 
