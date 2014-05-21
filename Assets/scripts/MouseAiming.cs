@@ -126,7 +126,7 @@ public class MouseAiming : MonoBehaviour {
 	void LateUpdate()
 	{
 
-		Vector3 cameraLocationXYZ = Camera.main.transform.position;
+		/*Vector3 cameraLocationXYZ = Camera.main.transform.position;
 
 		float cameraLocationX = Camera.main.transform.position.x;
 		float cameraLocationY = Camera.main.transform.position.y;
@@ -151,7 +151,21 @@ public class MouseAiming : MonoBehaviour {
 				{
 				Debug.LogError("hits on something");
 				}
-			}
+			}*/
+
+		if( Physics.Raycast ( Camera.main.transform.position, HeadObject.transform.TransformDirection ( Vector3.left ), 1 ) ) {
+
+			Debug.Log ( "left" );
+
+		} else if( Physics.Raycast ( Camera.main.transform.position, HeadObject.transform.TransformDirection ( Vector3.right ), 1 ) ) {
+			
+			Debug.Log ( "right" );
+			
+		} else if( Physics.Raycast ( Camera.main.transform.position, HeadObject.transform.TransformDirection ( Vector3.back ), 1 ) ) {
+			
+			Debug.Log ( "back" );
+			
+		}
 
 	}
 
