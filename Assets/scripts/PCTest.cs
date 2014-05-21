@@ -22,11 +22,15 @@ public class PCTest : MonoBehaviour {
 
 			CrosshairPos = Camera.main.WorldToScreenPoint ( hit.point );
 
+			Debug.DrawRay ( GunMuzzle.transform.position, Head.transform.TransformDirection ( Vector3.forward ) * hit.distance );
+
+		} else {
+
+			CrosshairPos = Camera.main.WorldToScreenPoint ( Head.transform.TransformDirection ( Vector3.forward ) * 10000 );
+
+			Debug.DrawRay ( GunMuzzle.transform.position, Head.transform.TransformDirection ( Vector3.forward ) * 10000 );
+
 		}
-
-		Debug.DrawRay ( GunMuzzle.transform.position, Head.transform.TransformDirection ( Vector3.forward ) * 100 );
-
-		//CrosshairPos = Camera.main.WorldToScreenPoint ( Head.transform.position );
 
 	}
 
