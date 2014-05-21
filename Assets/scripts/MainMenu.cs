@@ -295,31 +295,39 @@ public class MainMenu : MonoBehaviour {
 					//------------------------- CLASS SELECTION------------------
 				
 				case "BruiserText":
+					if(GameObject.Find ("DescriptionText").guiText.enabled == false)
+						GameObject.Find ("DescriptionText").guiText.enabled = true;
 					classDescription("Resources/bruiser.txt");
 
 					break;
 
 				case "AssasbinText":
+					if(GameObject.Find ("DescriptionText").guiText.enabled == false)
+						GameObject.Find ("DescriptionText").guiText.enabled = true;
 					classDescription("Resources/assasbin.txt");
 					break;
 
 				case "SpeedFreakText":
+					if(GameObject.Find ("DescriptionText").guiText.enabled == false)
+						GameObject.Find ("DescriptionText").guiText.enabled = true;
 					classDescription("Resources/speedfreak.txt");
 					break;
 
 				case "SniperText":
+					if(GameObject.Find ("DescriptionText").guiText.enabled == false)
+						GameObject.Find ("DescriptionText").guiText.enabled = true;
 					classDescription("Resources/sniper.txt");
 					break;
 
 				case "CBackText":
 					changeCameraPos("JoinGamePos");
-					GameObject.Find ("DescriptionText").guiText.enabled =false;
+					GameObject.Find ("DescriptionText").guiText.enabled = false;
 					break;
 
 					
 				case "PlayText":
-					Application.LoadLevel("Scene2");
-					GameObject.Find ("DescriptionText").guiText.enabled =false;
+					//Application.LoadLevel("Scene2");
+					GameObject.Find ("DescriptionText").guiText.enabled = false;
 					break;
 
 
@@ -386,8 +394,7 @@ public class MainMenu : MonoBehaviour {
 			Debug.Log(e.Message);
 		}
 		
-		Debug.Log ("BRUISER....");
-		
+
 	}
 	
 
