@@ -3,14 +3,16 @@ using System.Collections;
 
 public class InGameUI : MonoBehaviour {
 
+	public GUISkin GuiSkin;
+
 	public static Texture2D lineTex;
-	
-	private bool inOptionsMenu = false;
+
 	private bool inInputSettings = false;
 	private bool inVideoSettings = false;
 	private bool inAudioSettings = false;
 	private bool inKeyBindSettings = false;
 
+	static private bool inOptionsMenu = false;
 	static private bool inEscapeMenu = false;
 	static private bool inScoresMenu  = false;
 
@@ -23,13 +25,17 @@ public class InGameUI : MonoBehaviour {
 	static private bool showSkillSelect = false;
 	static private bool showSpecialSelect = false;
 
+	static public bool IsOptionsMenuOpen() {
+		return inOptionsMenu;
+	}
+
 	static public bool IsEscapeMenuOpen() {
 		return inEscapeMenu;
 	}
 
 	static public bool IsScoresMenuOpen(){
 		return inScoresMenu;
-		}
+	}
 
 	static public void ToggleSkillsSelect() {
 		showSkillSelect = !showSkillSelect;
@@ -90,6 +96,8 @@ public class InGameUI : MonoBehaviour {
 	}
 
 	void OnGUI() {
+
+		GUI.skin = GuiSkin;
 
 		if( showSkillSelect ) {
 
