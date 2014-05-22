@@ -22,7 +22,7 @@ public class CreditRoller : MonoBehaviour {
 			temp.transform.position = GameObject.Find("Manager").transform.position;
 			temp.transform.localScale = new Vector3( 0.2f, 0.2f);
 			
-			mesh.font = Resources.Load ( "Klavika-Medium" ) as Font;
+			mesh.font = Resources.Load ( "Capture it" ) as Font;
 			mesh.fontSize = 50;
 			mesh.alignment = TextAlignment.Center;
 			mesh.anchor = TextAnchor.UpperCenter;
@@ -79,7 +79,7 @@ public class CreditRoller : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		Camera.main.transform.Translate ( -Vector3.up * 3f * Time.deltaTime );
+		Camera.main.transform.Translate ( -Vector3.up * 2.5f * Time.deltaTime );
 
 	}
 
