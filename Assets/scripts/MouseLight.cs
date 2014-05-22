@@ -20,7 +20,7 @@ public class MouseLight : MonoBehaviour {
 	void Update () {
 
 
-		WorldPos = Camera.main.ScreenToWorldPoint ( new Vector3( Input.mousePosition.x, Input.mousePosition.y, 8.5f ) );
+		WorldPos = Camera.main.ScreenToWorldPoint ( new Vector3( Input.mousePosition.x, Input.mousePosition.y, 8.7f ) );
 		//Vector3 mousePosition = camera.ScreenToWorldPoint (Input.mousePosition);
 		//mouseLight.transform.Translate( WorldPos * Time.deltaTime);
 
