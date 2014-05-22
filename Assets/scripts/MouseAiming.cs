@@ -125,46 +125,25 @@ public class MouseAiming : MonoBehaviour {
 
 	void LateUpdate()
 	{
-
-		/*Vector3 cameraLocationXYZ = Camera.main.transform.position;
-
-		float cameraLocationX = Camera.main.transform.position.x;
-		float cameraLocationY = Camera.main.transform.position.y;
-		float cameraLocationZ = Camera.main.transform.position.z;
-
-		Vector3 newCameraLocationXYZ = new Vector3 (cameraLocationX, cameraLocationY, cameraLocationZ);
-
-		if (DebugMode == true)
-		{
-
-		Debug.Log(newCameraLocationXYZ);
-
-		}
-			RaycastHit objectHit;
-			
-			Debug.DrawLine (HeadObject.transform.position, newCameraLocationXYZ, Color.magenta);
-									
-		if (Physics.Raycast (HeadObject.transform.position, Camera.main.transform.position, out objectHit, 50)) 
-
-			{
+		
+		if( Physics.Raycast ( Camera.main.transform.position, HeadObject.transform.TransformDirection ( Vector3.left ), 1 ) ) {
 			if (DebugMode == true)
 				{
-				Debug.LogError("hits on something");
+					Debug.Log ( "left" );
 				}
-			}*/
-
-		if( Physics.Raycast ( Camera.main.transform.position, HeadObject.transform.TransformDirection ( Vector3.left ), 1 ) ) {
-
-			Debug.Log ( "left" );
 
 		} else if( Physics.Raycast ( Camera.main.transform.position, HeadObject.transform.TransformDirection ( Vector3.right ), 1 ) ) {
-			
-			Debug.Log ( "right" );
-			
+			if (DebugMode == true)
+				{
+					Debug.Log ( "right" );
+				}
+
 		} else if( Physics.Raycast ( Camera.main.transform.position, HeadObject.transform.TransformDirection ( Vector3.back ), 1 ) ) {
-			
-			Debug.Log ( "back" );
-			
+			if (DebugMode == true)
+				{
+					Debug.Log ( "back" );
+				}
+
 		}
 
 	}
