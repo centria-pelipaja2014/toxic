@@ -7,6 +7,7 @@ public class CharacterMovement : MonoBehaviour {
 	void Start () {
 	
 	}
+
 	public float sneakSpeed = 1.0F;
 	public float normalSpeed = 6.0F;
 	public float speed = 6.0F;
@@ -18,10 +19,7 @@ public class CharacterMovement : MonoBehaviour {
 
 
 	private Vector3 moveDirection = Vector3.zero;
-
-	void FixedUpdate () {
-
-	}
+	
 
 	// Update is called once per frame
 	void Update() {

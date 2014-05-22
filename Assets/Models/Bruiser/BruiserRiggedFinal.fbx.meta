@@ -1,0 +1,140 @@
+fileFormatVersion: 2
+guid: 2e3fcacd3b1ebe8438bc15a7bd758680
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Bruiser
+    100002: BruiserArmature
+    100004: //RootNode
+    100006: Head
+    100008: Hips
+    100010: LeftArm
+    100012: LeftFingers1
+    100014: LeftFingers2
+    100016: LeftFoot
+    100018: LeftForeArm
+    100020: LeftHand
+    100022: LeftHips
+    100024: LeftIndex1
+    100026: LeftIndex2
+    100028: LeftLeg
+    100030: LeftShoulder
+    100032: LeftThumb1
+    100034: LeftThumb2
+    100036: LeftToes
+    100038: LeftUpperLeg
+    100040: Neck
+    100042: RightArm
+    100044: RightFIngers1
+    100046: RightFingers2
+    100048: RightFoot
+    100050: RightForeArm
+    100052: RightHand
+    100054: RightHips
+    100056: RightIndex1
+    100058: RightINdex2
+    100060: RightLeg
+    100062: RightShoulder
+    100064: RightThumb
+    100066: RightThumb2
+    100068: RightToes
+    100070: RightUpperLeg
+    100072: Spine1
+    100074: Spine2
+    100076: Spine3
+    400000: Bruiser
+    400002: BruiserArmature
+    400004: //RootNode
+    400006: Head
+    400008: Hips
+    400010: LeftArm
+    400012: LeftFingers1
+    400014: LeftFingers2
+    400016: LeftFoot
+    400018: LeftForeArm
+    400020: LeftHand
+    400022: LeftHips
+    400024: LeftIndex1
+    400026: LeftIndex2
+    400028: LeftLeg
+    400030: LeftShoulder
+    400032: LeftThumb1
+    400034: LeftThumb2
+    400036: LeftToes
+    400038: LeftUpperLeg
+    400040: Neck
+    400042: RightArm
+    400044: RightFIngers1
+    400046: RightFingers2
+    400048: RightFoot
+    400050: RightForeArm
+    400052: RightHand
+    400054: RightHips
+    400056: RightIndex1
+    400058: RightINdex2
+    400060: RightLeg
+    400062: RightShoulder
+    400064: RightThumb
+    400066: RightThumb2
+    400068: RightToes
+    400070: RightUpperLeg
+    400072: Spine1
+    400074: Spine2
+    400076: Spine3
+    4300000: Bruiser
+    7400000: Default Take
+    9500000: //RootNode
+    13700000: Bruiser
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
