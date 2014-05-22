@@ -20,7 +20,7 @@ public class PCTest : MonoBehaviour {
 	
 		RaycastHit hit;
 		
-		if( Physics.Raycast ( GunMuzzle.transform.position, Head.transform.forward, out hit, 100 ) ) {
+		if( Physics.Raycast ( Camera.main.transform.position, Head.transform.forward, out hit, 100 ) ) {
 
 			CrosshairPos = Camera.main.WorldToScreenPoint ( hit.point );
 
@@ -28,7 +28,7 @@ public class PCTest : MonoBehaviour {
 
 		} else {
 
-			CrosshairPos = Camera.main.WorldToScreenPoint ( GunMuzzle.transform.position + Head.transform.forward * 10 );
+			CrosshairPos = Camera.main.WorldToScreenPoint ( Camera.main.transform.position + Head.transform.forward * 10 );
 
 		}
 
