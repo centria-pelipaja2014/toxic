@@ -16,6 +16,7 @@ public class PCTest : MonoBehaviour {
 	private Vector3 moveDirection = Vector3.zero;
 
 	private Vector3 CrosshairPos;
+	private Vector3 CrosshairGUIPos;
 
 	public Material CrosshairMaterial;
 
@@ -45,15 +46,19 @@ public class PCTest : MonoBehaviour {
 
 		//Rotation of the camera around the Y-axis
 		if( mouse_x != 0 ) {
-		
-			camera.RotateAround ( camera.position + camera.forward * 4, Vector3.up, mouse_x * 500 * Time.deltaTime );
+
+			camera.RotateAround ( Head.transform.position, Vector3.up, mouse_x * 500 * Time.deltaTime );
 
 		}
 
 		//Rotation of the camera around the X and Z-axis
 		if( mouse_y != 0 ) {
 
-			camera.RotateAround ( camera.position + camera.forward * 4, camera.rotation * Vector3.left, mouse_y * 500 * Time.deltaTime );
+			float normalized_x = camera.eulerAngles.x - mouse_y * 500 * Time.deltaTime;
+			normalized_x = normalized_x - ( Mathf.Floor( ( normalized_x + 180 ) / 360 ) ) * 360;
+
+			float x_clamped = Mathf.Clamp ( normalized_x, -18, 26 );
+			camera.rotation = Quaternion.Euler ( x_clamped, camera.eulerAngles.y, camera.eulerAngles.z );
 
 		}
 
@@ -79,8 +84,6 @@ public class PCTest : MonoBehaviour {
 		moveDirection.y -= gravity * Time.deltaTime;
 		controller.Move(moveDirection * Time.deltaTime);
 
-		transform.rotation = Quaternion.Euler ( 0, Head.transform.eulerAngles.y, 0 );
-
 		RaycastHit hit;
 
 		if( Physics.Raycast ( camera.position, camera.forward, out hit, 100 ) ) {
@@ -89,8 +92,11 @@ public class PCTest : MonoBehaviour {
 
 		}
 
-		Head.transform.LookAt ( Camera.main.ScreenToWorldPoint ( CrosshairPos ) );
-		Head.transform.Rotate ( 0, 0, -90 );
+		Vector3 point = Camera.main.ScreenToWorldPoint ( CrosshairPos );
+		Quaternion rot = Quaternion.LookRotation ( ( point - Head.transform.position ).normalized );
+
+		Head.transform.rotation = Quaternion.Euler ( -rot.eulerAngles.x, transform.eulerAngles.y, rot.eulerAngles.z - 90 );
+		transform.rotation = Quaternion.Euler ( 0, camera.eulerAngles.y, 0 );
 
 	}
 
