@@ -10,8 +10,8 @@ public class PCTest : MonoBehaviour {
 	private float jumpSpeed = 8.0F;
 	
 	private float gravity = 20.0F;
-	
-	
+
+	float h = 0, v = 0;
 	
 	private Vector3 moveDirection = Vector3.zero;
 
@@ -22,6 +22,12 @@ public class PCTest : MonoBehaviour {
 
 	public GameObject Head;
 	public GameObject GunMuzzle;
+
+	int FastFloor( float value ) {
+
+		return ( int )( value + 32768f ) - 32768;
+
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -55,17 +61,32 @@ public class PCTest : MonoBehaviour {
 		if( mouse_y != 0 ) {
 
 			float normalized_x = camera.eulerAngles.x - mouse_y * 500 * Time.deltaTime;
-			normalized_x = normalized_x - ( Mathf.Floor( ( normalized_x + 180 ) / 360 ) ) * 360;
+			normalized_x = normalized_x - ( FastFloor ( ( normalized_x + 180 ) / 360 ) ) * 360;
 
 			float x_clamped = Mathf.Clamp ( normalized_x, -18, 26 );
 			camera.rotation = Quaternion.Euler ( x_clamped, camera.eulerAngles.y, camera.eulerAngles.z );
 
 		}
 
+
+		if( Input.GetKey ( Config.GetKeyBind ( "forward" ) ) )
+			v = Mathf.Lerp ( v, 1, 6 * Time.smoothDeltaTime );
+		else if( Input.GetKey ( Config.GetKeyBind ( "backward" ) ) )
+			v = Mathf.Lerp ( v, -1, 6 * Time.smoothDeltaTime );
+		else 
+			v = Mathf.Lerp ( v, 0, 6 * Time.smoothDeltaTime );
+
+		if( Input.GetKey ( Config.GetKeyBind ( "strafe_left" ) ) )
+			h = Mathf.Lerp ( h, -1, 6 * Time.smoothDeltaTime );
+		else if( Input.GetKey ( Config.GetKeyBind ( "strafe_right" ) ) )
+			h = Mathf.Lerp ( h, 1, 6 * Time.smoothDeltaTime );
+		else
+			h = Mathf.Lerp ( h, 0, 6 * Time.smoothDeltaTime );
+
 		CharacterController controller = GetComponent<CharacterController>();
 		if( !InGameUI.IsEscapeMenuOpen () ) {
 			if (controller.isGrounded) {
-				moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+				moveDirection = new Vector3(h, 0, v);
 				moveDirection = transform.TransformDirection ( moveDirection );
 				moveDirection *= speed;
 				if (Input.GetButtonDown("Jump"))
@@ -81,8 +102,8 @@ public class PCTest : MonoBehaviour {
 			}
 		}
 		
-		moveDirection.y -= gravity * Time.deltaTime;
-		controller.Move(moveDirection * Time.deltaTime);
+		moveDirection.y -= gravity * Time.smoothDeltaTime;
+		controller.Move(moveDirection * Time.smoothDeltaTime);
 
 		RaycastHit hit;
 
