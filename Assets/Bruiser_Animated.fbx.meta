@@ -87,6 +87,10 @@ ModelImporter:
     4300002: Cube
     7400000: Default Take
     7400002: BruiserArmatureAction
+    7400004: Idle
+    7400006: Walk
+    7400008: Jump
+    7400010: Crouch
     9500000: //RootNode
     13700000: Bruiser
     13700002: Cube
@@ -98,13 +102,649 @@ ModelImporter:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     optimizeGameObjects: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: .5
     animationPositionError: .5
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 399
+      lastFrame: 430
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bruiser
+        weight: 1
+      - path: BruiserArmature
+        weight: 1
+      - path: BruiserArmature/Hips
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg/LeftLeg
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg/LeftLeg/LeftFoot
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg/LeftLeg/LeftFoot/LeftToes
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg/RightLeg
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg/RightLeg/RightFoot
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg/RightLeg/RightFoot/RightToes
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingers1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingers1/LeftFingers2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftIndex1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftIndex1/LeftIndex2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftThumb1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftThumb1/LeftThumb2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/Neck
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/Neck/Head
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightFIngers1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightFIngers1/RightFingers2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightIndex1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightIndex1/RightINdex2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightThumb
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightThumb/RightThumb2
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: BruiserArmatureAction
+      takeName: BruiserArmatureAction
+      firstFrame: 0
+      lastFrame: 452
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bruiser
+        weight: 1
+      - path: BruiserArmature
+        weight: 1
+      - path: BruiserArmature/Hips
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg/LeftLeg
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg/LeftLeg/LeftFoot
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg/LeftLeg/LeftFoot/LeftToes
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg/RightLeg
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg/RightLeg/RightFoot
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg/RightLeg/RightFoot/RightToes
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingers1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingers1/LeftFingers2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftIndex1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftIndex1/LeftIndex2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftThumb1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftThumb1/LeftThumb2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/Neck
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/Neck/Head
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightFIngers1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightFIngers1/RightFingers2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightIndex1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightIndex1/RightINdex2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightThumb
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightThumb/RightThumb2
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Idle
+      takeName: BruiserArmatureAction
+      firstFrame: 10
+      lastFrame: 88
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bruiser
+        weight: 1
+      - path: BruiserArmature
+        weight: 1
+      - path: BruiserArmature/Hips
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg/LeftLeg
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg/LeftLeg/LeftFoot
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg/LeftLeg/LeftFoot/LeftToes
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg/RightLeg
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg/RightLeg/RightFoot
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg/RightLeg/RightFoot/RightToes
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingers1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingers1/LeftFingers2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftIndex1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftIndex1/LeftIndex2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftThumb1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftThumb1/LeftThumb2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/Neck
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/Neck/Head
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightFIngers1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightFIngers1/RightFingers2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightIndex1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightIndex1/RightINdex2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightThumb
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightThumb/RightThumb2
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Walk
+      takeName: BruiserArmatureAction
+      firstFrame: 95
+      lastFrame: 123
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bruiser
+        weight: 1
+      - path: BruiserArmature
+        weight: 1
+      - path: BruiserArmature/Hips
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg/LeftLeg
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg/LeftLeg/LeftFoot
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg/LeftLeg/LeftFoot/LeftToes
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg/RightLeg
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg/RightLeg/RightFoot
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg/RightLeg/RightFoot/RightToes
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingers1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingers1/LeftFingers2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftIndex1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftIndex1/LeftIndex2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftThumb1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftThumb1/LeftThumb2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/Neck
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/Neck/Head
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightFIngers1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightFIngers1/RightFingers2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightIndex1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightIndex1/RightINdex2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightThumb
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightThumb/RightThumb2
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Jump
+      takeName: BruiserArmatureAction
+      firstFrame: 400
+      lastFrame: 431
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bruiser
+        weight: 1
+      - path: BruiserArmature
+        weight: 1
+      - path: BruiserArmature/Hips
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg/LeftLeg
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg/LeftLeg/LeftFoot
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg/LeftLeg/LeftFoot/LeftToes
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg/RightLeg
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg/RightLeg/RightFoot
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg/RightLeg/RightFoot/RightToes
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingers1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingers1/LeftFingers2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftIndex1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftIndex1/LeftIndex2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftThumb1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftThumb1/LeftThumb2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/Neck
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/Neck/Head
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightFIngers1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightFIngers1/RightFingers2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightIndex1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightIndex1/RightINdex2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightThumb
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightThumb/RightThumb2
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Crouch
+      takeName: BruiserArmatureAction
+      firstFrame: 305
+      lastFrame: 348
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bruiser
+        weight: 1
+      - path: BruiserArmature
+        weight: 1
+      - path: BruiserArmature/Hips
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg/LeftLeg
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg/LeftLeg/LeftFoot
+        weight: 1
+      - path: BruiserArmature/Hips/LeftHips/LeftUpperLeg/LeftLeg/LeftFoot/LeftToes
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg/RightLeg
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg/RightLeg/RightFoot
+        weight: 1
+      - path: BruiserArmature/Hips/RightHips/RightUpperLeg/RightLeg/RightFoot/RightToes
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingers1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingers1/LeftFingers2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftIndex1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftIndex1/LeftIndex2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftThumb1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftThumb1/LeftThumb2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/Neck
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/Neck/Head
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightFIngers1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightFIngers1/RightFingers2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightIndex1
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightIndex1/RightINdex2
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightThumb
+        weight: 1
+      - path: BruiserArmature/Hips/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightThumb/RightThumb2
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []

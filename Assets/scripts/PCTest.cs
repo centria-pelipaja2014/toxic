@@ -21,6 +21,7 @@ public class PCTest : MonoBehaviour {
 	public Material CrosshairMaterial;
 
 	public GameObject Head;
+	public GameObject Legs;
 	public GameObject GunMuzzle;
 
 	int FastFloor( float value ) {
@@ -68,20 +69,27 @@ public class PCTest : MonoBehaviour {
 
 		}
 
-
 		if( Input.GetKey ( Config.GetKeyBind ( "forward" ) ) )
-			v = Mathf.Lerp ( v, 1, 6 * Time.smoothDeltaTime );
+			v = 1;
 		else if( Input.GetKey ( Config.GetKeyBind ( "backward" ) ) )
-			v = Mathf.Lerp ( v, -1, 6 * Time.smoothDeltaTime );
+			v = -1;
 		else 
-			v = Mathf.Lerp ( v, 0, 6 * Time.smoothDeltaTime );
+			v = 0;
 
 		if( Input.GetKey ( Config.GetKeyBind ( "strafe_left" ) ) )
-			h = Mathf.Lerp ( h, -1, 6 * Time.smoothDeltaTime );
+			h = -1;
 		else if( Input.GetKey ( Config.GetKeyBind ( "strafe_right" ) ) )
-			h = Mathf.Lerp ( h, 1, 6 * Time.smoothDeltaTime );
+			h = 1;
 		else
-			h = Mathf.Lerp ( h, 0, 6 * Time.smoothDeltaTime );
+			h = 0;
+
+		if( v == 1 && h == -1 )
+			Legs.transform.rotation = Quaternion.Euler ( 0, 45, 0 );
+
+		if( v != 0 )
+			gameObject.GetComponent< Animator >().SetBool ( "IsWalking", true );
+		else
+			gameObject.GetComponent< Animator >().SetBool ( "IsWalking", false );
 
 		CharacterController controller = GetComponent<CharacterController>();
 		if( !InGameUI.IsEscapeMenuOpen () ) {
@@ -89,15 +97,20 @@ public class PCTest : MonoBehaviour {
 				moveDirection = new Vector3(h, 0, v);
 				moveDirection = transform.TransformDirection ( moveDirection );
 				moveDirection *= speed;
-				if (Input.GetButtonDown("Jump"))
+				if (Input.GetButtonDown("Jump")) {
 					moveDirection.y = jumpSpeed;
+					gameObject.GetComponent< Animator >().SetTrigger ("JumpTrigger");
+				}
 				if (Input.GetKey (KeyCode.LeftShift))
 				{
 					speed = sneakSpeed;
+					gameObject.GetComponent< Animator >().SetBool ( "IsCrouching", true );
+
 				}
 				else
 				{
 					speed = normalSpeed;
+					gameObject.GetComponent< Animator >().SetBool ( "IsCrouching", false );
 				}
 			}
 		}
