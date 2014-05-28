@@ -1,0 +1,10 @@
+*.jpg -delta
+*.png -delta
+*.blend -delta
+*.fbx -delta
+*.mat -delta
+*.xcf -delta
+*.guiskin -delta
+*.unity -delta
+*.ttf -delta
+*.otf -delta
