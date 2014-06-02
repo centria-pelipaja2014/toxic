@@ -537,7 +537,7 @@ ModelImporter:
       name: Jump
       takeName: BruiserArmatureAction
       firstFrame: 400
-      lastFrame: 431
+      lastFrame: 428
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
