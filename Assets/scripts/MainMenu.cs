@@ -439,11 +439,6 @@ public class MainMenu : MonoBehaviour {
 		GameObject.Find ("PlayText").renderer.material.color = color;
 
 	}
-
-
-
-
-
 }
 
 
