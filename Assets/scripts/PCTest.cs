@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PCTest : MonoBehaviour {
 
+	private Animator animator;
+
 	private float sneakSpeed = 1.0F;
 	private float normalSpeed = 6.0F;
 	private float speed = 6.0F;
@@ -27,6 +29,8 @@ public class PCTest : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		animator = GetComponent< Animator >();
 
 		CrosshairPos = new Vector3( Screen.width / 2, Screen.height / 2 );
 
@@ -70,10 +74,7 @@ public class PCTest : MonoBehaviour {
 		else
 			h = 0;
 
-		if( v != 0 )
-			gameObject.GetComponent< Animator >().SetBool ( "IsWalking", true );
-		else
-			gameObject.GetComponent< Animator >().SetBool ( "IsWalking", false );
+		animator.SetFloat ( "Speed", h*h+v*v );
 
 		CharacterController controller = GetComponent<CharacterController>();
 		if( !InGameUI.IsEscapeMenuOpen () ) {
@@ -83,18 +84,18 @@ public class PCTest : MonoBehaviour {
 				moveDirection *= speed;
 				if (Input.GetButtonDown("Jump")) {
 					moveDirection.y = jumpSpeed;
-					gameObject.GetComponent< Animator >().SetTrigger ("JumpTrigger");
+					animator.SetTrigger ("JumpTrigger");
 				}
 				if (Input.GetKey (KeyCode.LeftShift))
 				{
 					speed = sneakSpeed;
-					gameObject.GetComponent< Animator >().SetBool ( "IsCrouching", true );
+					animator.SetBool ( "IsCrouching", true );
 
 				}
 				else
 				{
 					speed = normalSpeed;
-					gameObject.GetComponent< Animator >().SetBool ( "IsCrouching", false );
+					animator.SetBool ( "IsCrouching", false );
 				}
 			}
 		}
