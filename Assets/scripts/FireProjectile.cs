@@ -30,28 +30,6 @@ public class FireProjectile : MonoBehaviour {
 		}
 	}
 
-		/*void CheckForHit()
-		{
-		RaycastHit objectHit;
-			Vector3 fwd = Muzzle.transform.TransformDirection (Vector3.forward);
-
-				Debug.DrawLine (Muzzle.transform.position, fwd * 50, Color.magenta);
-		timeSinceLastShot = 0;
-		// check for hits along the way
-		//
-		//											
-		if (Physics.Raycast (Muzzle.transform.position, fwd, out objectHit, 500)) 
-			{
-				if (objectHit.rigidbody != null)
-				{
-				//add force to the rigidbody of the hit object
-				// !!! CHANGE TO TAKE TAGS INTO ACCOUNT FOR PENETRATING HITS !!! 1-5 levels for penetration.
-					Vector3 rotatedVectorMuzzle = Quaternion.Euler ( Muzzle.transform.localEulerAngles ) * Muzzle.transform.localPosition;
-						objectHit.rigidbody.AddForce(rotatedVectorMuzzle * hitForce);
-				}
-		}
-	}*/
-
 	void CheckForHit()
 	{
 		RaycastHit objectHit;
